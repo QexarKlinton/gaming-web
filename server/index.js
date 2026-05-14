@@ -11,9 +11,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// CONEXIÓN MYSQL
+const mysql = require("mysql2")
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
 
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -21,8 +21,22 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+
   ssl: {
     rejectUnauthorized: false
+  }
+
+})
+db.getConnection((err, connection) => {
+
+  if (err) {
+    console.log("❌ Error MySQL:", err)
+  } else {
+    console.log("✅ MySQL conectado")
+    connection.release()
   }
 
 })
