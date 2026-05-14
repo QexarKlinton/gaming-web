@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
 
     axios
-      .get('http://localhost:5000/games')
+      .get('https://gaming-web-api.onrender.com')
 
       .then((response) => {
 

@@ -11,7 +11,7 @@ function GameDetails() {
   useEffect(() => {
 
     axios
-      .get(`http://localhost:5000/games/${id}`)
+      .get(`https://gaming-web-api.onrender.com`)
 
       .then((response) => {
 
