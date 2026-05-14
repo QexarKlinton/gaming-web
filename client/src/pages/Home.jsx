@@ -8,26 +8,26 @@ function Home() {
   const [search, setSearch] = useState('')
   const [selectedGenre, setSelectedGenre] = useState('Todos')
 
-  // OBTENER JUEGOS DESDE API
+// OBTENER JUEGOS DESDE API
 
-  useEffect(() => {
+useEffect(() => {
 
-    axios
-      .get('https://gaming-web-api.onrender.com')
+  axios
+    .get('https://gaming-web-api.onrender.com/games')
 
-      .then((response) => {
+    .then((response) => {
 
-        setGames(response.data)
+      setGames(response.data)
 
-      })
+    })
 
-      .catch((error) => {
+    .catch((error) => {
 
-        console.log(error)
+      console.log(error)
 
-      })
+    })
 
-  }, [])
+}, [])
 
   // FILTROS
 
