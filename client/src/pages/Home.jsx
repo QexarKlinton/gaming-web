@@ -178,6 +178,25 @@ function Home() {
 
       </div>
 
+      {/* PERSONAJE FLOTANTE */}
+
+<div className="fixed bottom-6 right-6 z-50 hidden lg:block">
+
+  <div className="relative">
+
+    {/* GLOW */}
+    <div className="absolute inset-0 bg-purple-500 blur-3xl opacity-30 rounded-full"></div>
+
+    <img
+      src="https://pngimg.com/d/assassins_creed_PNG41.png"
+      alt="character"
+      className="relative w-72 hover:scale-110 transition duration-500 drop-shadow-[0_0_35px_rgba(168,85,247,0.7)]"
+    />
+
+  </div>
+
+</div>
+
     </>
 
   )
