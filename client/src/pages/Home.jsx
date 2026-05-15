@@ -2,32 +2,33 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import GameCard from '../components/GameCard'
 import Navbar from '../components/Navbar'
+
 function Home() {
 
   const [games, setGames] = useState([])
   const [search, setSearch] = useState('')
   const [selectedGenre, setSelectedGenre] = useState('Todos')
 
-// OBTENER JUEGOS DESDE API
+  // OBTENER JUEGOS DESDE API
 
-useEffect(() => {
+  useEffect(() => {
 
-  axios
-    .get('https://gaming-web-api.onrender.com/games')
+    axios
+      .get('https://gaming-web-api.onrender.com/games')
 
-    .then((response) => {
+      .then((response) => {
 
-      setGames(response.data)
+        setGames(response.data)
 
-    })
+      })
 
-    .catch((error) => {
+      .catch((error) => {
 
-      console.log(error)
+        console.log(error)
 
-    })
+      })
 
-}, [])
+  }, [])
 
   // FILTROS
 
@@ -47,132 +48,140 @@ useEffect(() => {
   return (
 
     <>
-  <Navbar />
-    <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
 
-      {/* HERO */}
-      <section className="relative">
+      <Navbar />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/40 to-slate-950"></div>
+      <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
 
-        <div className="w-full max-w-screen-2xl mx-auto px-10 py-24 relative z-10">
+        {/* HERO */}
+        <section className="relative border-b border-slate-800">
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/40 to-slate-950"></div>
 
-            {/* TEXTO */}
-            <div>
+          <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-20 lg:py-28 relative z-10">
 
-              <p className="text-purple-400 font-bold text-xl mb-4">
-                NEW GEN GAMING
-              </p>
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-              <h1 className="text-8xl font-black leading-tight mb-8">
+              {/* TEXTO */}
+              <div>
 
-                Explora el
-                <span className="text-purple-500">
-                  {" "}universo gamer
-                </span>
+                <p className="text-purple-400 font-bold text-lg lg:text-xl mb-4 tracking-widest">
 
-              </h1>
+                  NEW GEN GAMING
 
-              <p className="text-slate-400 text-2xl mb-10 leading-relaxed">
+                </p>
 
-                Descubre videojuegos,
-                reseñas, críticas y las mejores
-                experiencias gaming del momento.
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8">
 
-              </p>
+                  Explora el
+                  <span className="text-purple-500">
+                    {' '}universo gamer
+                  </span>
 
-              <div className="flex gap-5">
+                </h1>
 
-                <button className="bg-purple-600 hover:bg-purple-700 transition px-10 py-5 rounded-2xl text-xl font-bold shadow-lg shadow-purple-500/30">
+                <p className="text-slate-400 text-lg md:text-2xl mb-10 leading-relaxed max-w-2xl">
 
-                  Explorar Juegos
+                  Descubre videojuegos, reseñas, críticas y las mejores
+                  experiencias gaming del momento.
 
-                </button>
+                </p>
 
-                <button className="border border-slate-600 hover:border-purple-500 transition px-10 py-5 rounded-2xl text-xl font-bold">
+                <div className="flex flex-wrap gap-5">
 
-                  Ver Reviews
+                  <button className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl text-lg font-bold shadow-lg shadow-purple-500/30">
 
-                </button>
+                    Explorar Juegos
+
+                  </button>
+
+                  <button className="border border-slate-600 hover:border-purple-500 transition px-8 py-4 rounded-2xl text-lg font-bold">
+
+                    Ver Reviews
+
+                  </button>
+
+                </div>
+
+              </div>
+
+              {/* IMAGEN */}
+              <div className="relative">
+
+                <div className="absolute -inset-4 bg-purple-600 blur-3xl opacity-20 rounded-full"></div>
+
+                <img
+                  src="https://images.ctfassets.net/rbl6nw8n2c6i/5BNkTpdOEFzF8aAwIZis97/381e3e39db7f34aa0d413ed8295dd051/gaming_article.png"
+                  alt="gaming"
+                  className="relative rounded-3xl shadow-2xl hover:scale-105 transition duration-500 w-full"
+                />
 
               </div>
 
             </div>
 
-            {/* IMAGEN */}
-            <div className="relative">
+          </div>
 
-              <div className="absolute -inset-4 bg-purple-600 blur-3xl opacity-20 rounded-full"></div>
+        </section>
 
-              <img
-                src="https://images.ctfassets.net/rbl6nw8n2c6i/5BNkTpdOEFzF8aAwIZis97/381e3e39db7f34aa0d413ed8295dd051/gaming_article.png"
-                alt="gaming"
-                className="relative rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
-              />
+        {/* JUEGOS */}
+        <section className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-20">
 
-            </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-14">
+
+            Juegos Destacados
+
+          </h2>
+
+          {/* BUSCADOR Y FILTRO */}
+          <div className="flex flex-col lg:flex-row gap-5 mb-12">
+
+            <input
+              type="text"
+              placeholder="Buscar videojuego..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 w-full text-lg outline-none focus:border-purple-500"
+            />
+
+            <select
+              value={selectedGenre}
+              onChange={(e) => setSelectedGenre(e.target.value)}
+              className="bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-lg outline-none focus:border-purple-500"
+            >
+
+              <option>Todos</option>
+              <option>Shooter</option>
+              <option>Terror</option>
+              <option>RPG</option>
+              <option>Sci-Fi</option>
+
+            </select>
 
           </div>
 
-        </div>
+          {/* GRID DE JUEGOS */}
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-10">
 
-      </section>
+            {filteredGames.map((game) => (
 
-      {/* JUEGOS */}
-      <section className="w-full max-w-screen-2xl mx-auto px-10 pb-24">
+              <GameCard
+                key={game.id}
+                game={game}
+              />
 
-        <h2 className="text-6xl font-black mb-14">
-          Juegos Destacados
-        </h2>
+            ))}
 
-        {/* BUSCADOR Y FILTRO */}
-        <div className="flex flex-col md:flex-row gap-5 mb-10">
+          </div>
 
-          <input
-            type="text"
-            placeholder="Buscar videojuego..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 w-full text-lg outline-none focus:border-purple-500"
-          />
+        </section>
 
-          <select
-            value={selectedGenre}
-            onChange={(e) => setSelectedGenre(e.target.value)}
-            className="bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-lg outline-none focus:border-purple-500"
-          >
+      </div>
 
-            <option>Todos</option>
-            <option>Shooter</option>
-            <option>Terror</option>
-            <option>RPG</option>
-            <option>Sci-Fi</option>
+    </>
 
-          </select>
-
-        </div>
-
-        {/* GRID DE JUEGOS */}
-        <div className="grid md:grid-cols-3 gap-10">
-
-          {filteredGames.map((game) => (
-
-            <GameCard
-              key={game.id}
-              game={game}
-            />
-
-          ))}
-
-        </div>
-
-      </section>
-
-    </div>
-</>
   )
+
 }
 
 export default Home

@@ -12,7 +12,7 @@ function GameDetails() {
   useEffect(() => {
 
     axios
-      .get(`https://gaming-web-api.onrender.com/games/${id}`)
+    .get(`https://gaming-web-api.onrender.com/games/${id}`)
 
       .then((response) => {
 

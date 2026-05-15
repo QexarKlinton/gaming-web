@@ -11,7 +11,7 @@ function GameCard({ game }) {
       <img
         src={game.image}
         alt={game.title}
-        className="w-full h-64 object-cover"
+        className="w-full h-80 object-cover"
       />
 
       {/* CONTENIDO */}
@@ -49,13 +49,13 @@ function GameCard({ game }) {
           </span>
 
           <Link
-            to={`/games/${game.id}`}
-            className="bg-purple-600 hover:bg-purple-700 transition px-5 py-3 rounded-xl text-white font-bold"
-          >
+              to={`/game/${game.id}`}
+              className="bg-purple-600 hover:bg-purple-700 transition px-5 py-3 rounded-xl text-white font-bold"
+            >
 
-            Ver más
+              Ver más
 
-          </Link>
+            </Link>
 
         </div>
 
