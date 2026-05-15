@@ -176,17 +176,6 @@ function Home() {
 
         </section>
 
-        {/* PERSONAJE FLOTANTE */}
-        <div className="fixed bottom-4 right-4 z-50 hidden lg:block">
-
-          <img
-            src="/bocchi.gif"
-            alt="Bocchi"
-            className="w-40 hover:scale-110 transition duration-300"
-          />
-
-        </div>
-
       </div>
 
     </>
