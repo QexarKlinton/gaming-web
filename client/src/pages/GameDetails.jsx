@@ -50,7 +50,7 @@ function GameDetails() {
 
       <div className="min-h-screen bg-slate-950 text-white p-10">
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14">
+        <div className="w-full max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-20">
 
           {/* IMAGEN */}
           <div>

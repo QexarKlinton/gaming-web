@@ -55,7 +55,7 @@ useEffect(() => {
 
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/40 to-slate-950"></div>
 
-        <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+        <div className="w-full max-w-screen-2xl mx-auto px-10 py-24 relative z-10">
 
           <div className="grid md:grid-cols-2 gap-16 items-center">
 
@@ -66,7 +66,7 @@ useEffect(() => {
                 NEW GEN GAMING
               </p>
 
-              <h1 className="text-7xl font-black leading-tight mb-8">
+              <h1 className="text-8xl font-black leading-tight mb-8">
 
                 Explora el
                 <span className="text-purple-500">
@@ -121,9 +121,9 @@ useEffect(() => {
       </section>
 
       {/* JUEGOS */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
+      <section className="w-full max-w-screen-2xl mx-auto px-10 pb-24">
 
-        <h2 className="text-5xl font-black mb-14">
+        <h2 className="text-6xl font-black mb-14">
           Juegos Destacados
         </h2>
 
