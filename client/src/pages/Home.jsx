@@ -188,7 +188,7 @@ function Home() {
     <div className="absolute inset-0 bg-purple-500 blur-3xl opacity-30 rounded-full"></div>
 
     <img
-      src="https://pngimg.com/d/assassins_creed_PNG41.png"
+      src="https://media.tenor.com/uG9H9qWU-TwAAAAj/bocchi-bocchi-the-rock.gif"
       alt="character"
       className="relative w-72 hover:scale-110 transition duration-500 drop-shadow-[0_0_35px_rgba(168,85,247,0.7)]"
     />
