@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const mysql = require("mysql2")
+// MYSQL POOL
 
 const db = mysql.createPool({
 
@@ -30,27 +30,21 @@ const db = mysql.createPool({
   }
 
 })
-db.getConnection((err, connection) => {
-
-  if (err) {
-    console.log("❌ Error MySQL:", err)
-  } else {
-    console.log("✅ MySQL conectado")
-    connection.release()
-  }
-
-})
 
 // VERIFICAR CONEXIÓN
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
 
   if (err) {
-    console.log('Error de conexión:', err)
-    return
-  }
 
-  console.log('MySQL conectado 🚀')
+    console.log('❌ Error MySQL:', err)
+
+  } else {
+
+    console.log('✅ MySQL conectado')
+    connection.release()
+
+  }
 
 })
 
@@ -189,6 +183,8 @@ app.post('/register', async (req, res) => {
 
 })
 
+// LOGIN
+
 app.post('/login', (req, res) => {
 
   const { email, password } = req.body
@@ -278,6 +274,7 @@ app.post('/login', (req, res) => {
   })
 
 })
+
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
