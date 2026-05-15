@@ -49,7 +49,7 @@ function GameCard({ game }) {
           </span>
 
           <Link
-            to={`/game/${game.id}`}
+            to={`/games/${game.id}`}
             className="bg-purple-600 hover:bg-purple-700 transition px-5 py-3 rounded-xl text-white font-bold"
           >
 
