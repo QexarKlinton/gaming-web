@@ -26,8 +26,9 @@ function App() {
               <GameDetails />
 
             </ProtectedRoute>
-    }
-  />
+          }
+        />
+
         <Route
           path="/login"
           element={<Login />}
@@ -39,6 +40,13 @@ function App() {
         />
 
       </Routes>
+
+      {/* GIF FLOTANTE */}
+      <img
+        src="/bocchi.gif"
+        alt="Bocchi"
+        className="fixed bottom-5 right-5 w-28 z-50 pointer-events-none"
+      />
 
     </BrowserRouter>
 
