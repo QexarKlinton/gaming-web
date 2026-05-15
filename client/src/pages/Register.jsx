@@ -33,7 +33,7 @@ function Register() {
 
       await axios.post(
 
-        'https://gaming-web-api.onrender.com',
+        'https://gaming-web-api.onrender.com/register',
 
         formData
 
