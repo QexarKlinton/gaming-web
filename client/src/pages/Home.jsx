@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import GameCard from '../components/GameCard'
 import Navbar from '../components/Navbar'
@@ -8,6 +8,7 @@ function Home() {
   const [games, setGames] = useState([])
   const [search, setSearch] = useState('')
   const [selectedGenre, setSelectedGenre] = useState('Todos')
+  const gamesSectionRef = useRef(null)
 
   // OBTENER JUEGOS DESDE API
 
@@ -51,7 +52,7 @@ function Home() {
 
       <Navbar />
 
-      <div className="min-h-screen bg-slate-950 text-white overflow-hidden relative">
+        <div className="min-h-screen bg-slate-950 text-white relative">
 
         {/* HERO */}
         <section className="relative border-b border-slate-800">
@@ -89,9 +90,16 @@ function Home() {
 
                 <div className="flex flex-wrap gap-5">
 
-                  <button className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl text-lg font-bold shadow-lg shadow-purple-500/30">
+                  <button
+                      onClick={() => {
+                        gamesSectionRef.current?.scrollIntoView({
+                          behavior: 'smooth'
+                        })
+                      }}
+                      className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl text-lg font-bold shadow-lg shadow-purple-500/30"
+                    >
 
-                    Explorar Juegos
+                      Explorar Juegos
 
                   </button>
 
@@ -125,7 +133,10 @@ function Home() {
         </section>
 
         {/* JUEGOS */}
-        <section className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-20">
+       <section
+              ref={gamesSectionRef}
+              className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-20"
+            >
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-14">
 
